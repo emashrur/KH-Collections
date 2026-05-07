@@ -22,7 +22,7 @@
             <div class="section-heading">
                 <p class="section-label">Accession Entry</p>
                 <h2 id="add-photograph-heading">Add Photograph / Artwork</h2>
-                <p>Use this form to create a temporary local record. In this prototype, records are saved in your browser.</p>
+                <p>Use this form to create a temporary local record. In this prototype, records and image previews are saved in your browser.</p>
             </div>
 
             <form id="artwork-form" class="artwork-form">
@@ -74,8 +74,17 @@
                     </fieldset>
 
                     <div class="form-field full-width">
-                        <label for="imageUrl">Image URL / File Reference</label>
-                        <input id="imageUrl" name="imageUrl" type="url" placeholder="Temporary placeholder for image location">
+                        <label for="artworkImage">Artwork Image</label>
+                        <input id="artworkImage" name="artworkImage" type="file" accept=".jpg,.jpeg,.png,.gif,.webp,.tif,.tiff,image/jpeg,image/png,image/gif,image/webp,image/tiff">
+                        <p class="field-help">Choose a JPEG, PNG, WEBP, GIF, or TIFF. Large TIFF files may not preview in every browser.</p>
+
+                        <div id="image-preview-wrapper" class="image-preview-wrapper hidden">
+                            <img id="image-preview" class="image-preview" src="" alt="Selected artwork preview">
+                            <div>
+                                <p id="image-file-name" class="image-file-name"></p>
+                                <button id="remove-selected-image" class="secondary-button small-button" type="button">Remove Selected Image</button>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-field full-width">

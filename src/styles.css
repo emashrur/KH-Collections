@@ -131,6 +131,10 @@ textarea {
     padding: 11px 12px;
 }
 
+input[type="file"] {
+    padding: 10px;
+}
+
 input:focus,
 textarea:focus {
     outline: 3px solid rgba(87, 177, 220, 0.25);
@@ -139,6 +143,12 @@ textarea:focus {
 
 textarea {
     resize: vertical;
+}
+
+.field-help {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.86rem;
 }
 
 .dimensions-fieldset {
@@ -152,6 +162,35 @@ textarea {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 14px;
+}
+
+.image-preview-wrapper {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: #fffdf9;
+    padding: 12px;
+}
+
+.hidden {
+    display: none;
+}
+
+.image-preview {
+    width: 110px;
+    height: 110px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    object-fit: cover;
+    background: #eadbc7;
+}
+
+.image-file-name {
+    margin: 0 0 10px;
+    color: var(--muted);
+    word-break: break-word;
 }
 
 .form-actions {
@@ -180,10 +219,16 @@ button {
     color: var(--text);
 }
 
-.danger-button {
+.danger-button,
+.delete-record-button {
     background: transparent;
     border: 1px solid #c58574;
     color: #8b321e;
+}
+
+.small-button {
+    padding: 8px 13px;
+    font-size: 0.86rem;
 }
 
 button:hover {
@@ -219,11 +264,37 @@ button:hover {
 }
 
 .artwork-card {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 16px;
     border: 1px solid var(--border);
     border-left: 5px solid var(--accent-blue);
     border-radius: 14px;
     background: #fffdf9;
     padding: 16px;
+}
+
+.thumbnail,
+.thumbnail-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    object-fit: cover;
+    background: #eadbc7;
+}
+
+.thumbnail-placeholder {
+    display: grid;
+    place-items: center;
+    color: var(--muted);
+    font-size: 0.82rem;
+    text-align: center;
+    padding: 10px;
+}
+
+.card-content {
+    min-width: 0;
 }
 
 .artwork-card h3 {
@@ -248,6 +319,15 @@ button:hover {
     border-top: 1px solid var(--border);
     margin-top: 12px;
     padding-top: 12px;
+}
+
+.card-actions {
+    margin-top: 14px;
+}
+
+.delete-record-button {
+    padding: 8px 14px;
+    font-size: 0.9rem;
 }
 
 .empty-state {
@@ -285,6 +365,21 @@ button:hover {
     }
 
     .inventory-heading-row {
+        flex-direction: column;
+    }
+
+    .artwork-card {
+        grid-template-columns: 1fr;
+    }
+
+    .thumbnail,
+    .thumbnail-placeholder {
+        width: 100%;
+        height: 190px;
+    }
+
+    .image-preview-wrapper {
+        align-items: flex-start;
         flex-direction: column;
     }
 }
