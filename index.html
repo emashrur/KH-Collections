@@ -5,68 +5,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kenkeleba House Collections</title>
-    <style>
-        body {
-            background-color: #faf2e4;
-            margin: 0 10%;
-            font-family: sans-serif;
-        }
-
-        h1 {
-            text-align: center;
-            font-family: serif;
-            font-weight: normal;
-            text-transform: uppercase;
-            border-bottom: 1px solid #57b1dc;
-            margin-top: 30px
-        }
-
-        h2 {
-            color: #d1633c;
-            font-size: 1em;
-        }
-    </style>
+    <link rel="stylesheet" href="src/styles.css">
+    <script type="module" src="src/app.js" defer></script>
 </head>
 
 <body>
+    <header class="site-header">
+        <p class="eyebrow">Digital Archive Prototype</p>
+        <h1>Kenkeleba House Collections</h1>
+        <p class="tagline">A working front-end draft for recording, searching, and reviewing artwork records.</p>
+        <a class="official-link" href="https://www.kenkeleba.org/" target="_blank" rel="noopener">Official Site</a>
+    </header>
 
-    <h1>Kenkeleba House Collections</h1>
+    <main class="app-layout">
+        <section class="panel form-panel" aria-labelledby="add-photograph-heading">
+            <div class="section-heading">
+                <p class="section-label">Accession Entry</p>
+                <h2 id="add-photograph-heading">Add Photograph / Artwork</h2>
+                <p>Use this form to create a temporary local record. In this prototype, records are saved in your browser.</p>
+            </div>
 
-    <a href="https://www.kenkeleba.org/" target="_blank">Official Site</a>
+            <form id="artwork-form" class="artwork-form">
+                <div class="form-grid">
+                    <div class="form-field full-width">
+                        <label for="title">Title <span>*</span></label>
+                        <input id="title" name="title" type="text" maxlength="100" required placeholder="Example: Summer-Z">
+                    </div>
 
-    <h2>Inventory</h2>
+                    <div class="form-field">
+                        <label for="artist">Artist <span>*</span></label>
+                        <input id="artist" name="artist" type="text" maxlength="100" required placeholder="Artist name">
+                    </div>
 
-    <p1>
-        <button>Add Photograph</button>
-        <button>Remove Photograph</button>
-    </p1>
-    <form action="/mailinglist.php" method="POST">
-        <li>
-            <label>Title </label>
-            <input type="text" maxlength="50">
-        </li>
-        <li>
-            <label>Artist </label>
-            <input type="text" maxlength="50">
-        </li>
-        <li>
-            <label>Date </label>
-            <input type="text" maxlenth="4">
-        </li>
-        <li>
-            <label>Medium</label>
-            <input type="text">
+                    <div class="form-field">
+                        <label for="date">Date</label>
+                        <input id="date" name="date" type="text" maxlength="40" placeholder="Year or date range">
+                    </div>
 
-        </li>
-    </form>
+                    <div class="form-field">
+                        <label for="medium">Medium</label>
+                        <input id="medium" name="medium" type="text" maxlength="100" placeholder="Photograph, print, mixed media...">
+                    </div>
 
+                    <div class="form-field">
+                        <label for="accessionNumber">Accession Number</label>
+                        <input id="accessionNumber" name="accessionNumber" type="text" maxlength="50" placeholder="KH-2026-001">
+                    </div>
 
-    <p2>
-        <button>Search Collection</button>
-    </p2>
+                    <fieldset class="dimensions-fieldset full-width">
+                        <legend>Dimensions</legend>
 
+                        <div class="dimension-grid">
+                            <div class="form-field">
+                                <label for="height">Height</label>
+                                <input id="height" name="height" type="text" placeholder="in.">
+                            </div>
 
+                            <div class="form-field">
+                                <label for="width">Width</label>
+                                <input id="width" name="width" type="text" placeholder="in.">
+                            </div>
 
+                            <div class="form-field">
+                                <label for="depth">Depth</label>
+                                <input id="depth" name="depth" type="text" placeholder="optional">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-field full-width">
+                        <label for="imageUrl">Image URL / File Reference</label>
+                        <input id="imageUrl" name="imageUrl" type="url" placeholder="Temporary placeholder for image location">
+                    </div>
+
+                    <div class="form-field full-width">
+                        <label for="provenance">Provenance / Notes</label>
+                        <textarea id="provenance" name="provenance" rows="5" placeholder="Record donor, source, condition notes, location, or related accession details."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button class="primary-button" type="submit">Add Record</button>
+                    <button class="secondary-button" type="reset">Clear Form</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel inventory-panel" aria-labelledby="inventory-heading">
+            <div class="section-heading inventory-heading-row">
+                <div>
+                    <p class="section-label">Inventory</p>
+                    <h2 id="inventory-heading">Collection Records</h2>
+                    <p id="record-count">0 records saved</p>
+                </div>
+
+                <button id="clear-records" class="danger-button" type="button">Clear All</button>
+            </div>
+
+            <label class="search-label" for="search">Search Collection</label>
+            <input id="search" class="search-input" type="search" placeholder="Search by title, artist, medium, accession number, or notes">
+
+            <div id="artwork-list" class="artwork-list" aria-live="polite"></div>
+        </section>
+    </main>
 </body>
 
 </html>
