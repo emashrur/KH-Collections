@@ -18,15 +18,15 @@ function getDimensions(artwork) {
 }
 
 function getThumbnailMarkup(artwork) {
-    if (!artwork.imageData) {
-        return `<div class="thumbnail-placeholder">No image selected</div>`;
+    if (!artwork.imagePreview) {
+        return `<div class="thumbnail-placeholder">Image file recorded</div>`;
     }
 
     return `
         <img 
             class="thumbnail" 
-            src="${artwork.imageData}" 
-            alt="Thumbnail preview for ${escapeHtml(artwork.title)}"
+            src="${artwork.imagePreview}" 
+            alt="Temporary preview for ${escapeHtml(artwork.title)}"
         >
     `;
 }

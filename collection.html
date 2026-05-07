@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenkeleba House Collections | Collection Records</title>
+    <link rel="stylesheet" href="src/styles.css">
+    <script type="module" src="src/collection.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header compact-header">
+        <nav class="top-nav" aria-label="Main navigation">
+            <a href="index.html">Add Record</a>
+            <a href="collection.html" aria-current="page">View Collection</a>
+            <a href="https://www.kenkeleba.org/" target="_blank" rel="noopener">Official Site</a>
+        </nav>
+
+        <p class="eyebrow">Digital Archive Prototype</p>
+        <h1>Collection Records</h1>
+        <p class="tagline">Browse and search the records saved from the artwork entry form.</p>
+    </header>
+
+    <main class="page-shell">
+        <section class="intro-block collection-intro">
+            <div>
+                <p class="section-label">Inventory</p>
+                <h2>Saved Records</h2>
+                <p id="record-count">0 records saved</p>
+            </div>
+
+            <a class="primary-link-button" href="index.html">Add New Record</a>
+        </section>
+
+        <section class="panel collection-panel" aria-labelledby="collection-heading">
+            <h2 id="collection-heading" class="screen-reader-only">Collection Records</h2>
+
+            <div class="collection-toolbar">
+                <div class="form-field">
+                    <label for="search">Search Collection</label>
+                    <input id="search" class="search-input" type="search" placeholder="Search by title, artist, medium, accession number, image file, or notes">
+                </div>
+
+                <button id="clear-records" class="danger-button" type="button">Clear All Records</button>
+            </div>
+
+            <div id="artwork-list" class="artwork-list collection-list" aria-live="polite"></div>
+        </section>
+    </main>
+</body>
+
+</html>

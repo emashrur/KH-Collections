@@ -10,7 +10,7 @@
     --accent-blue: #57b1dc;
     --accent-orange: #d1633c;
     --border: #dfcfba;
-    --shadow: 0 18px 45px rgba(44, 37, 32, 0.12);
+    --shadow: 0 14px 34px rgba(44, 37, 32, 0.09);
 }
 
 body {
@@ -18,22 +18,46 @@ body {
     background-color: var(--page-bg);
     color: var(--text);
     font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.5;
+    line-height: 1.55;
 }
 
 .site-header {
     width: min(1180px, 90%);
     margin: 0 auto;
-    padding: 44px 0 28px;
     text-align: center;
     border-bottom: 1px solid var(--accent-blue);
+}
+
+.compact-header {
+    padding: 20px 0 24px;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+    font-size: 0.92rem;
+}
+
+.top-nav a,
+.text-button {
+    color: var(--text);
+    text-underline-offset: 5px;
+}
+
+.top-nav a[aria-current="page"] {
+    color: var(--accent-orange);
+    font-weight: 700;
+    text-decoration-thickness: 2px;
 }
 
 .eyebrow,
 .section-label {
     margin: 0;
     color: var(--accent-orange);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -47,36 +71,53 @@ h3 {
 }
 
 h1 {
-    margin: 8px 0 10px;
-    font-size: clamp(2rem, 5vw, 4rem);
-    letter-spacing: 0.12em;
+    margin: 6px 0 8px;
+    font-size: clamp(1.75rem, 3.6vw, 3rem);
+    letter-spacing: 0.1em;
     text-transform: uppercase;
 }
 
 h2 {
-    margin: 3px 0 8px;
+    margin: 4px 0 10px;
     color: var(--accent-orange);
-    font-size: 1.45rem;
+    font-size: clamp(1.45rem, 2.5vw, 2.05rem);
+}
+
+h3 {
+    margin: 0 0 18px;
+    font-size: 1.25rem;
+    color: var(--text);
 }
 
 .tagline {
-    max-width: 650px;
-    margin: 0 auto 16px;
+    max-width: 680px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: 0.96rem;
+}
+
+.page-shell {
+    width: min(1040px, 90%);
+    margin: 26px auto 60px;
+}
+
+.intro-block {
+    max-width: 820px;
+    margin: 0 auto 24px;
+    text-align: center;
+}
+
+.intro-block p {
     color: var(--muted);
 }
 
-.official-link {
-    color: var(--text);
-    text-underline-offset: 5px;
-}
-
-.app-layout {
-    width: min(1180px, 90%);
-    margin: 34px auto 60px;
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+.collection-intro {
+    max-width: none;
+    display: flex;
+    justify-content: space-between;
     gap: 24px;
-    align-items: start;
+    align-items: center;
+    text-align: left;
 }
 
 .panel {
@@ -84,18 +125,38 @@ h2 {
     border: 1px solid var(--border);
     border-radius: 18px;
     box-shadow: var(--shadow);
-    padding: 26px;
 }
 
-.section-heading p {
-    margin-top: 0;
-    color: var(--muted);
+.spacious-panel {
+    padding: clamp(24px, 4vw, 46px);
+}
+
+.collection-panel {
+    padding: clamp(22px, 3vw, 34px);
+}
+
+.form-section {
+    padding: 0 0 28px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border);
+}
+
+.form-section:last-of-type {
+    border-bottom: 0;
+    margin-bottom: 0;
 }
 
 .form-grid {
     display: grid;
+    gap: 22px;
+}
+
+.two-column {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+}
+
+.three-column {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .full-width {
@@ -105,14 +166,12 @@ h2 {
 .form-field {
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 8px;
 }
 
-label,
-legend,
-.search-label {
+label {
     color: var(--text);
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     font-weight: 700;
 }
 
@@ -128,7 +187,7 @@ textarea {
     background: #fffdf9;
     color: var(--text);
     font: inherit;
-    padding: 11px 12px;
+    padding: 12px 13px;
 }
 
 input[type="file"] {
@@ -151,19 +210,6 @@ textarea {
     font-size: 0.86rem;
 }
 
-.dimensions-fieldset {
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 15px;
-    margin: 0;
-}
-
-.dimension-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-}
-
 .image-preview-wrapper {
     display: flex;
     gap: 14px;
@@ -172,6 +218,7 @@ textarea {
     border-radius: 14px;
     background: #fffdf9;
     padding: 12px;
+    max-width: 520px;
 }
 
 .hidden {
@@ -193,23 +240,33 @@ textarea {
     word-break: break-word;
 }
 
-.form-actions {
-    margin-top: 22px;
+.form-actions,
+.collection-toolbar {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 14px;
+    align-items: end;
 }
 
-button {
+.balanced-actions {
+    margin-top: 28px;
+    align-items: center;
+}
+
+button,
+.primary-link-button {
     border: 0;
     border-radius: 999px;
     cursor: pointer;
     font: inherit;
     font-weight: 700;
     padding: 11px 18px;
+    text-decoration: none;
+    display: inline-block;
 }
 
-.primary-button {
+.primary-button,
+.primary-link-button {
     background: var(--accent-orange);
     color: white;
 }
@@ -231,41 +288,43 @@ button {
     font-size: 0.86rem;
 }
 
-button:hover {
+button:hover,
+.primary-link-button:hover {
     filter: brightness(0.96);
 }
 
-.inventory-heading-row {
-    display: flex;
+.save-message {
+    min-height: 1.5em;
+    color: var(--accent-orange);
+    font-weight: 700;
+}
+
+.collection-toolbar {
     justify-content: space-between;
-    gap: 18px;
-    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.collection-toolbar .form-field {
+    flex: 1 1 420px;
 }
 
 #record-count {
     margin: 0;
     color: var(--muted);
-    font-size: 0.92rem;
-}
-
-.search-label {
-    display: block;
-    margin-top: 20px;
-    margin-bottom: 7px;
-}
-
-.search-input {
-    margin-bottom: 18px;
 }
 
 .artwork-list {
     display: grid;
-    gap: 14px;
+    gap: 16px;
+}
+
+.collection-list {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .artwork-card {
     display: grid;
-    grid-template-columns: 120px minmax(0, 1fr);
+    grid-template-columns: 105px minmax(0, 1fr);
     gap: 16px;
     border: 1px solid var(--border);
     border-left: 5px solid var(--accent-blue);
@@ -276,8 +335,8 @@ button:hover {
 
 .thumbnail,
 .thumbnail-placeholder {
-    width: 120px;
-    height: 120px;
+    width: 105px;
+    height: 105px;
     border-radius: 12px;
     border: 1px solid var(--border);
     object-fit: cover;
@@ -288,7 +347,7 @@ button:hover {
     display: grid;
     place-items: center;
     color: var(--muted);
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     text-align: center;
     padding: 10px;
 }
@@ -299,7 +358,7 @@ button:hover {
 
 .artwork-card h3 {
     margin: 0 0 4px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .artwork-card p {
@@ -309,10 +368,9 @@ button:hover {
 
 .card-meta {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px 16px;
-    margin-top: 12px;
-    font-size: 0.92rem;
+    gap: 4px;
+    margin-top: 10px;
+    font-size: 0.9rem;
 }
 
 .card-notes {
@@ -327,45 +385,37 @@ button:hover {
 
 .delete-record-button {
     padding: 8px 14px;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
 }
 
 .empty-state {
     border: 1px dashed var(--border);
     border-radius: 14px;
     color: var(--muted);
-    padding: 22px;
+    padding: 28px;
     text-align: center;
+    grid-column: 1 / -1;
 }
 
-@media (max-width: 900px) {
-    .app-layout {
-        grid-template-columns: 1fr;
-    }
+.screen-reader-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
 }
 
-@media (max-width: 620px) {
-    .site-header,
-    .app-layout {
-        width: 92%;
-    }
-
-    h1 {
-        letter-spacing: 0.06em;
-    }
-
-    .panel {
-        padding: 20px;
-    }
-
-    .form-grid,
-    .dimension-grid,
-    .card-meta {
+@media (max-width: 760px) {
+    .two-column,
+    .three-column,
+    .collection-list {
         grid-template-columns: 1fr;
     }
 
-    .inventory-heading-row {
+    .collection-intro {
+        align-items: flex-start;
         flex-direction: column;
+        text-align: left;
     }
 
     .artwork-card {
@@ -381,5 +431,20 @@ button:hover {
     .image-preview-wrapper {
         align-items: flex-start;
         flex-direction: column;
+    }
+}
+
+@media (max-width: 520px) {
+    .site-header,
+    .page-shell {
+        width: 92%;
+    }
+
+    h1 {
+        letter-spacing: 0.06em;
+    }
+
+    .top-nav {
+        gap: 14px;
     }
 }
