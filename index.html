@@ -19,7 +19,7 @@
 
         <p class="eyebrow">Digital Archive Prototype</p>
         <h1>Kenkeleba House Collections</h1>
-        <p class="tagline">A spacious front-end draft for entering artwork and photograph records.</p>
+        <!-- <p class="tagline">A spacious front-end draft for entering artwork and photograph records.</p> -->
     </header>
 
     <main class="page-shell">
@@ -42,27 +42,31 @@
                     <div class="form-grid two-column">
                         <div class="form-field full-width">
                             <label for="title">Title <span>*</span></label>
-                            <input id="title" name="title" type="text" maxlength="100" required placeholder="Example: Summer-Z">
+                            <input id="title" name="title" type="text" maxlength="100" required
+                                placeholder="Example: Celestial Gate">
                         </div>
 
                         <div class="form-field">
                             <label for="artist">Artist <span>*</span></label>
-                            <input id="artist" name="artist" type="text" maxlength="100" required placeholder="Artist name">
+                            <input id="artist" name="artist" type="text" maxlength="100" required
+                                placeholder="Example: Hale Woodruff">
                         </div>
 
                         <div class="form-field">
                             <label for="date">Date</label>
-                            <input id="date" name="date" type="text" maxlength="40" placeholder="Year or date range">
+                            <input id="date" name="date" type="text" maxlength="40" placeholder="Year or Date Range">
                         </div>
 
                         <div class="form-field">
                             <label for="medium">Medium</label>
-                            <input id="medium" name="medium" type="text" maxlength="100" placeholder="Photograph, print, mixed media...">
+                            <input id="medium" name="medium" type="text" maxlength="100"
+                                placeholder="Photograph, print, mixed media...">
                         </div>
 
                         <div class="form-field">
                             <label for="accessionNumber">Accession Number</label>
-                            <input id="accessionNumber" name="accessionNumber" type="text" maxlength="50" placeholder="KH-2026-001">
+                            <input id="accessionNumber" name="accessionNumber" type="text" maxlength="50"
+                                placeholder="2026.00.00">
                         </div>
                     </div>
                 </div>
@@ -93,16 +97,19 @@
 
                     <div class="form-field">
                         <label for="artworkImage">Artwork Image</label>
-                        <input id="artworkImage" name="artworkImage" type="file" accept=".jpg,.jpeg,.png,.gif,.webp,.tif,.tiff,image/jpeg,image/png,image/gif,image/webp,image/tiff">
+                        <input id="artworkImage" name="artworkImage" type="file"
+                            accept=".jpg,.jpeg,.png,.gif,.webp,.tif,.tiff,image/jpeg,image/png,image/gif,image/webp,image/tiff">
                         <p class="field-help">
-                            This prototype previews the selected image but only saves the file name. Real image storage will come later with a backend or archive drive.
+                            This prototype previews the selected image but only saves the file name. Real image storage
+                            will come later with a backend or archive drive.
                         </p>
 
                         <div id="image-preview-wrapper" class="image-preview-wrapper hidden">
                             <img id="image-preview" class="image-preview" src="" alt="Selected artwork preview">
                             <div>
                                 <p id="image-file-name" class="image-file-name"></p>
-                                <button id="remove-selected-image" class="secondary-button small-button" type="button">Remove Selected Image</button>
+                                <button id="remove-selected-image" class="secondary-button small-button"
+                                    type="button">Remove Selected Image</button>
                             </div>
                         </div>
                     </div>
@@ -113,7 +120,8 @@
 
                     <div class="form-field">
                         <label for="provenance">Provenance / Notes</label>
-                        <textarea id="provenance" name="provenance" rows="7" placeholder="Record donor, source, condition notes, location, or related accession details."></textarea>
+                        <textarea id="provenance" name="provenance" rows="7"
+                            placeholder="Record donor, source, condition notes, location, or related accession details."></textarea>
                     </div>
                 </div>
 
