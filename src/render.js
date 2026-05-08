@@ -48,7 +48,7 @@ function createArtworkCard(artwork) {
                 <p><strong>Date:</strong> ${escapeHtml(artwork.date) || "Not recorded"}</p>
                 <p><strong>Medium:</strong> ${escapeHtml(artwork.medium) || "Not recorded"}</p>
                 <p><strong>Accession #:</strong> ${escapeHtml(artwork.accessionNumber) || "Not assigned"}</p>
-                <p><strong>Dimensions:</strong> ${escapeHtml(getDimensions(artwork))}</p>
+                <p><strong>Dimensions:</strong> ${escapeHtml(getDimensions(artwork))} inches</p>
             </div>
 
             ${artwork.imageName ? `<p><strong>Image File:</strong> ${escapeHtml(artwork.imageName)}</p>` : ""}
